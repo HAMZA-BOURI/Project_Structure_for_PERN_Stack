@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
-import { useAppDispatch, useAppSelector } from '../app/hooks'
-import { setUser, clearAuth, setLoading } from '../app/slices/slice'
+import { useAppDispatch, useAppSelector } from './hooks'
+import { setUser, clearAuth, setLoading } from '../state/slices/slice'
 
 export const useAuthCheck = () => {
   const [isLoading, setIsLoading] = useState(true)

@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
-import { useAppSelector } from './hooks'
+import { useAppSelector } from '../hooks/hooks'
 import SimpleDashboard from '../components/dashboard/SimpleDashboard'
 import UsersPage from '../pages/UsersPage'
 import LoginPage from '../pages/auth/LoginPage'

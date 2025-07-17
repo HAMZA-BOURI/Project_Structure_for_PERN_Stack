@@ -59,25 +59,52 @@ project/
 │   │   └── server.ts       # Server entry point
 │   ├── tests/              # Test files
 │   └── docs/               # API documentation
-├── frontend/               # React frontend
-│   ├── public/             # Static assets
+├── frontend/
+├   ├── public/                   # Static assets(faviconmanifest, etc.)
 │   ├── src/
-│   │   ├── app/            # Redux store and router
-│   │   ├── modules/        # Feature modules
-│   │   │   ├── user/       # User management
-│   │   │   ├── product/    # Product management
-│   │   │   └── order/      # Order management
-│   │   ├── components/     # Reusable components
-│   │   │   ├── ui/         # Base UI components
-│   │   │   ├── forms/      # Form components
-│   │   │   └── layout/     # Layout components
-│   │   ├── layouts/        # Page layouts
-│   │   ├── hooks/          # Custom hooks
-│   │   ├── services/       # API services
-│   │   ├── utils/          # Utility functions
-│   │   ├── types/          # TypeScript types
-│   │   └── styles/         # Global styles
-│   └── tests/              # Test files
+│   ├── assets/              # Images, icons, fonts, SVGs
+│   │
+│   ├── components/          # Reusable UI components
+│   │   ├── ui/              # Generic UI components (Button, Modal, etc.)
+│   │   └── dashboard/       # Components specific to dashboard UI
+│   │
+│   ├── constants/           # App-wide constants (roles, paths, enums)
+│   │
+│   ├── hooks/               # Custom React hooks
+│   │   ├── useStore.ts      # Typed useSelector/useDispatch (Redux)
+│   │   └── useAuthCheck.ts  # Hook for checking user auth from localStorage
+│   │
+│   ├── layouts/             # Shared layout wrappers (e.g., MainLayout, AuthLayout)
+│   │
+│   ├── pages/               # Route-level pages
+│   │   ├── auth/            # Login, Register, ForgotPassword
+│   │   │   └── LoginPage.tsx
+│   │   └── dashboard/       # Dashboard-related pages
+│   │       └── DashboardPage.tsx
+│   │
+│   ├── router/              # React Router configuration
+│   │   └── router.tsx       # Defines app routes and protected routing logic
+│   │
+│   ├── services/            # API calls (e.g., authService, userService)
+│   │
+│   ├── state/               # Redux Toolkit setup
+│   │   ├── store.ts         # Redux store configuration
+│   │   └── slices/          # Redux slices
+│   │       └── authSlice.ts # Auth slice (contains actions like setUser, clearAuth)
+│   │
+│   ├── styles/              # Tailwind and global styles
+│   │   └── index.css
+│   │
+│   ├── types/               # TypeScript types and interfaces
+│   │
+│   ├── utils/               # Utility functions (e.g., formatDate, storage helpers)
+│   │
+│   ├── App.tsx              # Main app wrapper (providers, routing)
+│   ├── main.tsx             # Entry point for React + Vite
+│   │── vite-env.d.ts        # Vite type declarations
+│   │
+│   └── tests/                   # Frontend test files (Vitest, React Testing Library)
+│            # Test files
 └── README.md
 ```
 
