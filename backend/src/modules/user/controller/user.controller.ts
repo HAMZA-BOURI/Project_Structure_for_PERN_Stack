@@ -177,7 +177,8 @@ export class UserController {
       const { email } = req.query;
       
       if (!email || typeof email !== 'string') {
-        return ResponseUtil.badRequest(res, 'Email parameter is required');
+        ResponseUtil.badRequest(res, 'Email parameter is required');
+        return;
       }
 
       // This would typically use the repository directly for a simple check

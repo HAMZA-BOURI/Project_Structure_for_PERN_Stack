@@ -10,6 +10,7 @@ export interface AuthRequest extends Request {
     email: string;
     role: string;
   };
+  token?: string;
 }
 
 export const authenticateToken = async (
@@ -31,16 +32,20 @@ export const authenticateToken = async (
       email: decoded.email,
       role: decoded.role,
     };
+    req.token = token;
 
     next();
   } catch (error) {
     if (error instanceof jwt.JsonWebTokenError) {
-      return ResponseUtil.unauthorized(res, 'Invalid token');
+      ResponseUtil.unauthorized(res, 'Invalid token');
+      return;
     }
     if (error instanceof jwt.TokenExpiredError) {
-      return ResponseUtil.unauthorized(res, 'Token expired');
+      ResponseUtil.unauthorized(res, 'Token expired');
+      return;
     }
-    return ResponseUtil.unauthorized(res, 'Authentication failed');
+    ResponseUtil.unauthorized(res, 'Authentication failed');
+    return;
   }
 };
 
@@ -58,9 +63,11 @@ export const authorizeRoles = (...roles: string[]) => {
       next();
     } catch (error) {
       if (error instanceof AuthorizationError) {
-        return ResponseUtil.forbidden(res, error.message);
+        ResponseUtil.forbidden(res, error.message);
+        return;
       }
-      return ResponseUtil.unauthorized(res, 'Authentication required');
+      ResponseUtil.unauthorized(res, 'Authentication required');
+      return;
     }
   };
 }; 
