@@ -50,7 +50,7 @@ class ErrorBoundary extends Component<Props, State> {
               <p className="text-sm text-gray-500 mb-4">
                 An unexpected error occurred. Please refresh the page or try again later.
               </p>
-              {process.env.NODE_ENV === 'development' && this.state.error && (
+              {import.meta.env.MODE === 'development' && this.state.error && (
                 <details className="text-left bg-gray-100 p-3 rounded text-xs mb-4">
                   <summary className="cursor-pointer font-medium">Error Details</summary>
                   <pre className="mt-2 whitespace-pre-wrap">
