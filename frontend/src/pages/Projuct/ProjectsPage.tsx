@@ -1,5 +1,5 @@
 import React from 'react'
-import { DashboardLayout } from '../components/dashboard'
+import { DashboardLayout } from '../../components/dashboard'
 
 const ProjectsPage: React.FC = () => {
   const sampleProjects = [
