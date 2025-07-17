@@ -1,8 +1,8 @@
 import React from 'react'
-import DashboardLayout from './DashboardLayout'
-import StatCard from './StatCard'
-import ChartPlaceholder from './ChartPlaceholder'
-import ActivityFeed from './ActivityFeed'
+import DashboardLayout from '../../components/dashboard/DashboardLayout'
+import StatCard from '../../components/dashboard/StatCard'
+import ChartPlaceholder from '../../components/dashboard/ChartPlaceholder'
+import ActivityFeed from '../../components/dashboard/ActivityFeed'
 
 const Dashboard: React.FC = () => {
   // Sample data - replace with real data from your API

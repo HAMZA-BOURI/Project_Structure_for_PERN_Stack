@@ -1,5 +1,5 @@
 // Dashboard Components
-export { default as Dashboard } from './Dashboard'
+export { default as Dashboard } from '../../pages/dashboard/DashboardPage'
 export { default as SimpleDashboard } from './SimpleDashboard'
 export { default as DashboardLayout } from './DashboardLayout'
 export { default as StatCard } from './StatCard'

@@ -1,9 +1,9 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import { useAppSelector } from './hooks'
 import SimpleDashboard from '../components/dashboard/SimpleDashboard'
-import UsersPage from '../components/pages/UsersPage'
-import LoginPage from '../components/auth/LoginPage'
-import RegisterPage from '../components/auth/RegisterPage'
+import UsersPage from '../pages/UsersPage'
+import LoginPage from '../pages/auth/LoginPage'
+import RegisterPage from '../pages/auth/RegisterPage'
 
 // Simple Home Page
 const HomePage = () => (
