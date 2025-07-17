@@ -9,14 +9,16 @@ const prisma = new PrismaClient();
 
 export class AuthService {
   private generateTokens(userId: string, role: Role) {
+    const payload = { userId, role: role.toString() };
+    
     const accessToken = jwt.sign(
-      { userId, role },
+      payload,
       config.JWT_SECRET,
       { expiresIn: config.JWT_EXPIRES_IN }
     );
 
     const refreshToken = jwt.sign(
-      { userId, role },
+      payload,
       config.JWT_REFRESH_SECRET,
       { expiresIn: config.JWT_REFRESH_EXPIRES_IN }
     );

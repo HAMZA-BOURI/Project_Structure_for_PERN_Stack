@@ -4,6 +4,7 @@ import { ZodError } from 'zod';
 import logger from '../utils/logger';
 import { config } from '../config/server';
 import { ResponseUtil } from '../utils/response';
+import { AppError } from '../utils/AppError';
 
 export const errorHandler = (
   error: Error,
@@ -22,7 +23,10 @@ export const errorHandler = (
 
   // Handle known operational errors
   if (error instanceof AppError) {
-    ResponseUtil.error(res, error.message, error.statusCode);
+    res.status(error.statusCode).json({
+      success: false,
+      message: error.message
+    });
     return;
   }
 
@@ -38,7 +42,7 @@ export const errorHandler = (
         ResponseUtil.notFound(res, 'Resource not found');
         return;
       default:
-        ResponseUtil.error(res, 'Database operation failed', 500);
+        ResponseUtil.internalServerError(res, 'Database operation failed');
         return;
     }
   }
@@ -68,5 +72,5 @@ export const errorHandler = (
     ? 'Internal server error' 
     : error.message;
 
-  ResponseUtil.error(res, message, 500);
+  ResponseUtil.internalServerError(res, message);
 }; 
